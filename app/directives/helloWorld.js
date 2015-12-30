@@ -3,13 +3,14 @@ module.exports = function (app) {
         return {
             restrict: "E",
             replace: true,
-            template: "<div>{{ helloWorld.greeting }}</div>",
-            scope: {},
+            // TODO: https://egghead.io/lessons/angularjs-angular-with-webpack-requiring-templates
+            template: require("./helloWorld.html"),
+            scope: {
+                name: "@"
+            },
             controllerAs: "helloWorld",
-            controller: function () {
-                var that = this;
-                
-                that.greeting = "Hello from directive controller";
+            controller: function ($scope) {
+                console.log($scope.name);
             }
         };
     })    

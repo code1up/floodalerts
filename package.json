@@ -8,6 +8,8 @@
     "express": "^4.13.3"
   },
   "devDependencies": {
+    "babel-loader": "^6.2.0",
+    "raw-loader": "^0.5.1",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"
   },

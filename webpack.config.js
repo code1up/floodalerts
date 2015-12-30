@@ -6,5 +6,22 @@ module.exports = {
     output: {
         path: __dirname + "/app",
         filename: "bundle.js"
+    },
+    
+    module: {
+        loaders: [
+            /*
+            {
+                test: /\.js$/,
+                loader: "babel",
+                exclude: "node_modules"
+            }
+            */
+            {
+                test: /\.html$/,
+                loader: "raw",
+                exclude: "node_modules"
+            }
+        ]
     }
 };
