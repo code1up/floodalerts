@@ -1,4 +1,10 @@
+/* global IS_TESTING */
+
 module.exports = function (app) {
+    if (IS_TESTING) {
+        require("./helloWorld.test")(app);    
+    }
+    
     app.directive("helloWorld", function () {
         require("./helloWorld.css");
         
@@ -15,5 +21,5 @@ module.exports = function (app) {
                 console.log($scope.name);
             }
         };
-    })    
+    });
 };
