@@ -1,5 +1,7 @@
 module.exports = function (app) {
     app.directive("helloWorld", function () {
+        require("./helloWorld.css");
+        
         return {
             restrict: "E",
             replace: true,
