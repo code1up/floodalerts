@@ -1,0 +1,28 @@
+{
+  "name": "floods",
+  "version": "1.0.0",
+  "description": "Provides local (to Littleborough) flood information.",
+  "main": "index.js",
+  "dependencies": {
+    "angular": "^1.4.8",
+    "express": "^4.13.3"
+  },
+  "devDependencies": {
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./node_modules/.bin/webpack-dev-server --content-base app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/code1up/floods.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/code1up/floods/issues"
+  },
+  "homepage": "https://github.com/code1up/floods#readme"
+}
