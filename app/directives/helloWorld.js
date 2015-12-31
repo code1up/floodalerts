@@ -1,6 +1,7 @@
 /* global IS_TESTING */
-
 module.exports = function (app) {
+    "use strict";
+    
     if (IS_TESTING) {
         require("./helloWorld.test")(app);    
     }

@@ -1,11 +1,15 @@
 /* global IS_TESTING */
 
-var angular = require("angular");
+(function () {
+    "use strict";
+    
+    var angular = require("angular");
 
-if (IS_TESTING) {
-    require("angular-mocks/angular-mocks");    
-}
+    if (IS_TESTING) {
+        require("angular-mocks/angular-mocks");    
+    }
 
-var app = angular.module("app", []);
+    var app = angular.module("app", []);
 
-require("./directives")(app);
+    require("./directives")(app);    
+}());
