@@ -29163,7 +29163,7 @@
 
 
 	// module
-	exports.push([module.id, ".hello-world {\n    color: green;\n    font-weight: bold;\n}\n", ""]);
+	exports.push([module.id, ".hello-world {\n    color: darkgreen;\n    font-weight: bold;\n}\n", ""]);
 
 	// exports
 
