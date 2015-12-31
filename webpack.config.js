@@ -26,6 +26,11 @@ var config = {
             }
             */
             {
+                test: /\.js$/,
+                loader: "ng-annotate",
+                exclude: "node_modules"
+            },
+            {
                 test: /\.html$/,
                 loader: "raw",
                 exclude: "node_modules"
@@ -42,6 +47,7 @@ var config = {
 
 if (process.env.NODE_ENV === "production") {
     config.output.path = __dirname + "/dist";
+    config.plugins.push(new webpack.optimize.UglifyJsPlugin());
 }
 
 module.exports = config;
