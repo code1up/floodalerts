@@ -2,11 +2,14 @@
 /* global __dirname */
 var webpack = require("webpack");
 
+var appPath = __dirname + "/app";
+var distPath = __dirname + "/dist";
+
 var config = {
-    context: __dirname + "/app",
+    context: appPath,
     entry: "./app.js",
     output: {
-        path: __dirname + "/app",
+        path: appPath,
         filename: "bundle.js"
     },
     
@@ -16,37 +19,49 @@ var config = {
         })
     ],
     
+    jshint: {
+        emitErrors: true,
+        failOnHint: true
+    },
+    
     module: {
+        preLoaders: [
+            {
+                test: /\.js$/,
+                loader: "jshint",
+                include: appPath
+            }            
+        ],
         loaders: [
             /*
             {
                 test: /\.js$/,
                 loader: "babel",
-                exclude: "node_modules"
+                include: __dirname + "/app"
             }
             */
             {
                 test: /\.js$/,
                 loader: "ng-annotate",
-                exclude: "node_modules"
+                include: appPath
             },
             {
                 test: /\.html$/,
                 loader: "raw",
-                exclude: "node_modules"
+                include: appPath
             },
             {
                 test: /\.css$/,
                 // NOTE: loaders run from right to left and separated by a bang.
                 loader: "style!css",
-                exclude: "node_modules"
+                include: appPath
             }
         ]
     }
 };
 
 if (process.env.NODE_ENV === "production") {
-    config.output.path = __dirname + "/dist";
+    config.output.path = distPath;
     config.plugins.push(new webpack.optimize.UglifyJsPlugin());
     config.devtool = "source-map";
 }
